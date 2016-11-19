@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Genius Math!</string>
+    <string name="edit_message">Enter your answer</string>
+    <string name="button_send">Enter</string>
+    <string name="button_confident">Know it</string>
+    <string name="button_not_confident">Do not Know it</string>
+</resources>
