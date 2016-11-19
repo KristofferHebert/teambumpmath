@@ -4,4 +4,7 @@
     <string name="button_send">Enter</string>
     <string name="button_confident">Know it</string>
     <string name="button_not_confident">Do not Know it</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="feelingOfConfidence">Do you know this?</string>
 </resources>

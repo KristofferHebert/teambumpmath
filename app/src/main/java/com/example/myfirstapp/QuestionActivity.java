@@ -1,7 +1,15 @@
 package com.example.myfirstapp;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+
+import android.app.PendingIntent;
+import android.app.RemoteInput;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +22,9 @@ public class QuestionActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
-    private String feeling_of_knowledge_prompt = "Do you know this?";
+    private static final String KEY_TEXT_YES = "key_text_yes";
+
+    private static final String KEY_TEXT_NO = "key_text_no";
 
     private Problem question;
 
@@ -40,8 +50,78 @@ public class QuestionActivity extends AppCompatActivity {
         questionView.setTextSize(25);
 
         TextView feelingOfKnowledgeView = (TextView) findViewById(R.id.feeling_of_knowledge_message);
-        feelingOfKnowledgeView.setText(feeling_of_knowledge_prompt);
+        feelingOfKnowledgeView.setText(getString(R.string.feelingOfConfidence));
         feelingOfKnowledgeView.setTextSize(25);
+
+
+
+        //TODO move this out
+
+        Context mContext = this;
+
+        RemoteInput remoteYesInput = new RemoteInput.Builder(KEY_TEXT_YES)
+                .setLabel(getString(R.string.yes))
+                .build();
+
+        PendingIntent yesPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
+
+        //This was deprecated for passing in an Icon not the int from R.drawable
+        Notification.Action yesAction =
+                new Notification.Action.Builder(R.drawable.abc_ab_share_pack_mtrl_alpha,
+                        getString(R.string.yes), yesPendingIntent)
+                        .addRemoteInput(remoteYesInput)
+                        .build();
+
+
+        RemoteInput remoteNoInput = new RemoteInput.Builder(KEY_TEXT_NO)
+                .setLabel(getString(R.string.no))
+                .build();
+
+        PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
+
+        //TODO the icon is not real
+        //This was deprecated for passing in an Icon not the int from R.drawable
+        Notification.Action noAction =
+                new Notification.Action.Builder(R.drawable.abc_ab_share_pack_mtrl_alpha,
+                        getString(R.string.no), noPendingIntent)
+                        .addRemoteInput(remoteNoInput)
+                        .build();
+
+        final Notification doYouKnowNotification =
+                new Notification.Builder(mContext)
+                        .setSmallIcon(R.drawable.abc_ab_share_pack_mtrl_alpha)
+                        .setContentTitle(question.getQuestion())
+                        .setContentText(getString(R.string.feelingOfConfidence))
+                       // .addAction(yesAction) //TODO want to add two actions
+                        .addAction(noAction).build();
+
+        scheduleNotification(doYouKnowNotification, 8000);
+
+    }
+
+    private PendingIntent pendingIntent(Class toActivity, Class parentActivity) {
+        Intent intent = new Intent(this, toActivity);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        // Adds the back stack
+        stackBuilder.addParentStack(parentActivity);
+        // Adds the Intent to the top of the stack
+        stackBuilder.addNextIntent(intent);
+
+        //TODO instantiate
+        return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+
+    private void scheduleNotification(Notification notification, int delay) {
+
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
     }
 
 
@@ -56,11 +136,10 @@ public class QuestionActivity extends AppCompatActivity {
 
                 String response = (answer.equals(question.getAnswer()))? "you are correct" : incorrectAnswerFeedback(question);
 
-
                 intent.putExtra(EXTRA_MESSAGE, response);
                 startActivity(intent);
             }
-        }, randInt(2000, 8000));
+        }, randInt(1000, 3000));
 
     }
 
