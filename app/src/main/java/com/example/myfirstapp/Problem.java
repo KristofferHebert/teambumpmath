@@ -6,19 +6,25 @@ package com.example.myfirstapp;
 
 public class Problem {
 
+    private int id;
+
     private String question;
 
     private String answer;
 
     private String incorrectAnswerFeedback;
 
-    public Problem(String question, String answer, String incorrectAnswerFeedback) {
+    public Problem(int id, String question, String answer, String incorrectAnswerFeedback) {
+        this.id = id;
         this.answer = answer;
         this.question = question;
         this.incorrectAnswerFeedback = incorrectAnswerFeedback;
 
     }
 
+    public int getId(){
+        return id;
+    }
 
     public String getQuestion() {
         return question;

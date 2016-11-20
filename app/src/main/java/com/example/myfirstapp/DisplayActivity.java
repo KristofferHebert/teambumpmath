@@ -15,7 +15,7 @@ public class DisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_message);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(QuestionActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(QuestionActivity.ANSWER);
         TextView textView = new TextView(this);
         textView.setTextSize(40);
         textView.setText(message);

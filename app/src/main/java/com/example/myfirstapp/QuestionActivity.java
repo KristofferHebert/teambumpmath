@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.Notification;
 
 import android.app.PendingIntent;
-import android.app.RemoteInput;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
@@ -20,15 +19,23 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Map;
+
 import static com.example.myfirstapp.RandomNumber.randInt;
 
 public class QuestionActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public final static String ANSWER = "com.example.bumpmath.ANSWER";
 
-    private static final String KEY_TEXT_YES = "key_text_yes";
+    public final static String QUESTION_ID = "com.example.bumpmath.QUESTION_ID";
 
-    private static final String KEY_TEXT_NO = "key_text_no";
+    public final int NO_QUESTION_EXISTS = -1;
+
+
+
+//    private static final String KEY_TEXT_YES = "key_text_yes";
+//
+//    private static final String KEY_TEXT_NO = "key_text_no";
 
     private Problem problem;
 
@@ -36,15 +43,25 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        if(intent != null){
+            int problemId = intent.getIntExtra(QuestionActivity.QUESTION_ID, NO_QUESTION_EXISTS);
+            if(problemId == NO_QUESTION_EXISTS){
+                problem = Problems.randomProblem();
+            } else {
+                problem = Problems.get(problemId);
+            }
+        } else {
+            problem = Problems.randomProblem();
+        }
+
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        problem = Problems.randomProblem();
-
         EditText editText = (EditText) findViewById(R.id.edit_message);
         editText.setText(null);
 
@@ -63,15 +80,14 @@ public class QuestionActivity extends AppCompatActivity {
         Bitmap practiceBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.practice);
         Icon practiceIcon = Icon.createWithBitmap(practiceBitmap);
 
-        PendingIntent yesPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
-
+        PendingIntent yesPendingIntent = pendingIntent(QuestionActivity.class, QuestionActivity.class, problem.getId());
 
         Notification.Action yesAction =
                 new Notification.Action.Builder(practiceIcon,
                         getString(R.string.yes), yesPendingIntent)
                         .build();
 
-        PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
+        PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class, problem.getId());
 
         Notification.Action noAction =
                 new Notification.Action.Builder(practiceIcon,
@@ -95,14 +111,14 @@ public class QuestionActivity extends AppCompatActivity {
         scheduleNotification(doYouKnowNotification, 8000);
     }
 
-    private PendingIntent pendingIntent(Class toActivity, Class parentActivity) {
+    private PendingIntent pendingIntent(Class toActivity, Class parentActivity, int questionId) {
         Intent intent = new Intent(this, toActivity);
+        intent.putExtra(QUESTION_ID, questionId);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         // Adds the back stack
         stackBuilder.addParentStack(parentActivity);
         // Adds the Intent to the top of the stack
         stackBuilder.addNextIntent(intent);
-
         return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
@@ -135,10 +151,10 @@ public class QuestionActivity extends AppCompatActivity {
 
                 String response = (answer.equals(problem.getAnswer()))? "you are correct" : incorrectAnswerFeedback(problem);
 
-                intent.putExtra(EXTRA_MESSAGE, response);
+                intent.putExtra(ANSWER, response);
                 startActivity(intent);
             }
-        }, randInt(1000, 3000));
+        }, randInt(10, 30)); // can increase to fulfill time delay later
 
     }
 
