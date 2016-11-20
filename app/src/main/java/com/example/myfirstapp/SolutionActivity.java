@@ -22,13 +22,17 @@ public class SolutionActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        TextView answerText = (TextView) findViewById(R.id.answer);
+        TextView answerText = (TextView) findViewById(R.id.answer_text);
         answerText.setText(problem.getAnswer());
         answerText.setTextSize(25);
 
-        TextView questionView = (TextView) findViewById(R.id.question);
+        TextView questionView = (TextView) findViewById(R.id.question_text);
         questionView.setText(problem.getQuestion());
         questionView.setTextSize(25);
+
+        TextView explainationView = (TextView) findViewById(R.id.explaination_text);
+        explainationView.setText(problem.getIncorrectAnswerFeedback());
+        explainationView.setTextSize(25);
 
 
 
