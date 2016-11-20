@@ -43,7 +43,6 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
         problem = Problems.randomProblem();
 
         EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -56,39 +55,26 @@ public class QuestionActivity extends AppCompatActivity {
         TextView feelingOfKnowledgeView = (TextView) findViewById(R.id.feeling_of_knowledge_message);
         feelingOfKnowledgeView.setText(getString(R.string.feelingOfConfidence));
         feelingOfKnowledgeView.setTextSize(25);
+    }
 
-
-        //TODO move this out
-
+    private void registerNotification() {
         Context mContext = this;
         Bitmap practiceBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.practice);
         Icon practiceIcon = Icon.createWithBitmap(practiceBitmap);
 
-        RemoteInput remoteYesInput = new RemoteInput.Builder(KEY_TEXT_YES)
-                .setLabel(getString(R.string.yes))
-                .build();
-
         PendingIntent yesPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
 
-        //This was deprecated for passing in an Icon not the int from R.drawable
+
         Notification.Action yesAction =
                 new Notification.Action.Builder(practiceIcon,
                         getString(R.string.yes), yesPendingIntent)
-                        .addRemoteInput(remoteYesInput)
                         .build();
-
-
-        RemoteInput remoteNoInput = new RemoteInput.Builder(KEY_TEXT_NO)
-                .setLabel(getString(R.string.no))
-                .build();
 
         PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
 
-        //This was deprecated for passing in an Icon not the int from R.drawable - Bitmap is an Icon
         Notification.Action noAction =
                 new Notification.Action.Builder(practiceIcon,
                         getString(R.string.no), noPendingIntent)
-                        .addRemoteInput(remoteNoInput)
                         .build();
 
         final Notification doYouKnowNotification =
@@ -106,7 +92,6 @@ public class QuestionActivity extends AppCompatActivity {
 
 
         scheduleNotification(doYouKnowNotification, 8000);
-
     }
 
     private PendingIntent pendingIntent(Class toActivity, Class parentActivity) {
@@ -132,6 +117,11 @@ public class QuestionActivity extends AppCompatActivity {
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        registerNotification();
+    }
 
     public void sendMessage(View view){
 
