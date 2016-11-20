@@ -87,7 +87,7 @@ public class QuestionActivity extends AppCompatActivity {
                         getString(R.string.yes), yesPendingIntent)
                         .build();
 
-        PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class, problem.getId());
+        PendingIntent noPendingIntent = pendingIntent(QuestionActivity.class, SolutionActivity.class, problem.getId());
 
         Notification.Action noAction =
                 new Notification.Action.Builder(practiceIcon,
