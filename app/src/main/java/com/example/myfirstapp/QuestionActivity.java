@@ -78,7 +78,6 @@ public class QuestionActivity extends AppCompatActivity {
 
         PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
 
-        //TODO the icon is not real
         //This was deprecated for passing in an Icon not the int from R.drawable
         Notification.Action noAction =
                 new Notification.Action.Builder(R.drawable.practice,
@@ -95,7 +94,7 @@ public class QuestionActivity extends AppCompatActivity {
                         .setVisibility(Notification.VISIBILITY_PUBLIC)
                         .setCategory(Notification.CATEGORY_REMINDER)
                         .setDefaults(Notification.DEFAULT_VIBRATE)
-                        .addAction(yesAction) //TODO want to add two actions
+                        .addAction(yesAction)
                         .addAction(noAction).build();
 
 
