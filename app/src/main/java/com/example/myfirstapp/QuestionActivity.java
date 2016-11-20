@@ -8,6 +8,7 @@ import android.app.RemoteInput;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -94,6 +95,7 @@ public class QuestionActivity extends AppCompatActivity {
                         .setVisibility(Notification.VISIBILITY_PUBLIC)
                         .setCategory(Notification.CATEGORY_REMINDER)
                         .setDefaults(Notification.DEFAULT_VIBRATE)
+                        .setColor(Color.rgb(87, 198, 235))
                         .addAction(yesAction)
                         .addAction(noAction).build();
 
