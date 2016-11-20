@@ -26,7 +26,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     private static final String KEY_TEXT_NO = "key_text_no";
 
-    private Problem question;
+    private Problem problem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,13 @@ public class QuestionActivity extends AppCompatActivity {
         super.onStart();
 
 
-        question = Problems.randomQuestion();
+        problem = Problems.randomProblem();
 
         EditText editText = (EditText) findViewById(R.id.edit_message);
         editText.setText(null);
 
         TextView questionView = (TextView) findViewById(R.id.question_message);
-        questionView.setText(question.getQuestion());
+        questionView.setText(problem.getQuestion());
         questionView.setTextSize(25);
 
         TextView feelingOfKnowledgeView = (TextView) findViewById(R.id.feeling_of_knowledge_message);
@@ -90,7 +90,7 @@ public class QuestionActivity extends AppCompatActivity {
         final Notification doYouKnowNotification =
                 new Notification.Builder(mContext)
                         .setSmallIcon(R.drawable.cat)
-                        .setContentTitle(question.getQuestion())
+                        .setContentTitle(problem.getQuestion())
                         .setContentText(getString(R.string.feelingOfConfidence))
                        // .addAction(yesAction) //TODO want to add two actions
                         .addAction(noAction).build();
@@ -145,7 +145,7 @@ public class QuestionActivity extends AppCompatActivity {
                 EditText editText = (EditText) findViewById(R.id.edit_message);
                 String answer = editText.getText().toString();
 
-                String response = (answer.equals(question.getAnswer()))? "you are correct" : incorrectAnswerFeedback(question);
+                String response = (answer.equals(problem.getAnswer()))? "you are correct" : incorrectAnswerFeedback(problem);
 
                 intent.putExtra(EXTRA_MESSAGE, response);
                 startActivity(intent);

@@ -16,7 +16,7 @@ public class Problems {
             new Problem("81 / 9  = ?", "9", "9 x 9 = 81")
     );
 
-    public static Problem randomQuestion(){
+    public static Problem randomProblem(){
         return questions.get(RandomNumber.randInt(0, questions.size() -1));
     }
 
