@@ -29,7 +29,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     public final static String QUESTION_ID = "com.example.bumpmath.QUESTION_ID";
 
-    public final int NO_QUESTION_EXISTS = -1;
+    public final static int NO_QUESTION_EXISTS = -1;
 
 
 
@@ -87,7 +87,7 @@ public class QuestionActivity extends AppCompatActivity {
                         getString(R.string.yes), yesPendingIntent)
                         .build();
 
-        PendingIntent noPendingIntent = pendingIntent(QuestionActivity.class, SolutionActivity.class, problem.getId());
+        PendingIntent noPendingIntent = pendingIntent(SolutionActivity.class, QuestionActivity.class, problem.getId());
 
         Notification.Action noAction =
                 new Notification.Action.Builder(practiceIcon,
