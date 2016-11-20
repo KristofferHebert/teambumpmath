@@ -52,9 +52,10 @@ public class QuestionActivity extends AppCompatActivity {
         questionView.setText(problem.getQuestion());
         questionView.setTextSize(25);
 
-        TextView feelingOfKnowledgeView = (TextView) findViewById(R.id.feeling_of_knowledge_message);
-        feelingOfKnowledgeView.setText(getString(R.string.feelingOfConfidence));
-        feelingOfKnowledgeView.setTextSize(25);
+        //this is now on the notifications - do we want to keep that interaction inside the activities?
+//        TextView feelingOfKnowledgeView = (TextView) findViewById(R.id.feeling_of_knowledge_message);
+//        feelingOfKnowledgeView.setText(getString(R.string.feelingOfConfidence));
+//        feelingOfKnowledgeView.setTextSize(25);
     }
 
     private void registerNotification() {
