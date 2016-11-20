@@ -8,7 +8,10 @@ import android.app.RemoteInput;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -58,6 +61,8 @@ public class QuestionActivity extends AppCompatActivity {
         //TODO move this out
 
         Context mContext = this;
+        Bitmap practiceBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.practice);
+        Icon practiceIcon = Icon.createWithBitmap(practiceBitmap);
 
         RemoteInput remoteYesInput = new RemoteInput.Builder(KEY_TEXT_YES)
                 .setLabel(getString(R.string.yes))
@@ -67,7 +72,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         //This was deprecated for passing in an Icon not the int from R.drawable
         Notification.Action yesAction =
-                new Notification.Action.Builder(R.drawable.practice,
+                new Notification.Action.Builder(practiceIcon,
                         getString(R.string.yes), yesPendingIntent)
                         .addRemoteInput(remoteYesInput)
                         .build();
@@ -79,23 +84,23 @@ public class QuestionActivity extends AppCompatActivity {
 
         PendingIntent noPendingIntent = pendingIntent(DisplayActivity.class, QuestionActivity.class);
 
-        //This was deprecated for passing in an Icon not the int from R.drawable
+        //This was deprecated for passing in an Icon not the int from R.drawable - Bitmap is an Icon
         Notification.Action noAction =
-                new Notification.Action.Builder(R.drawable.practice,
+                new Notification.Action.Builder(practiceIcon,
                         getString(R.string.no), noPendingIntent)
                         .addRemoteInput(remoteNoInput)
                         .build();
 
         final Notification doYouKnowNotification =
                 new Notification.Builder(mContext)
-                        .setSmallIcon(R.drawable.practice)
+                        .setSmallIcon(practiceIcon)
                         .setContentTitle(problem.getQuestion())
                         .setContentText(getString(R.string.feelingOfConfidence))
                         .setPriority(Notification.PRIORITY_MAX)
                         .setVisibility(Notification.VISIBILITY_PUBLIC)
                         .setCategory(Notification.CATEGORY_REMINDER)
                         .setDefaults(Notification.DEFAULT_VIBRATE)
-                        .setColor(Color.rgb(87, 198, 235))
+                        .setColor(Color.rgb(106, 206, 107))
                         .addAction(yesAction)
                         .addAction(noAction).build();
 
