@@ -54,7 +54,6 @@ public class QuestionActivity extends AppCompatActivity {
         feelingOfKnowledgeView.setTextSize(25);
 
 
-
         //TODO move this out
 
         Context mContext = this;
@@ -67,7 +66,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         //This was deprecated for passing in an Icon not the int from R.drawable
         Notification.Action yesAction =
-                new Notification.Action.Builder(R.drawable.cat,
+                new Notification.Action.Builder(R.drawable.practice,
                         getString(R.string.yes), yesPendingIntent)
                         .addRemoteInput(remoteYesInput)
                         .build();
@@ -82,22 +81,25 @@ public class QuestionActivity extends AppCompatActivity {
         //TODO the icon is not real
         //This was deprecated for passing in an Icon not the int from R.drawable
         Notification.Action noAction =
-                new Notification.Action.Builder(R.drawable.cat,
+                new Notification.Action.Builder(R.drawable.practice,
                         getString(R.string.no), noPendingIntent)
                         .addRemoteInput(remoteNoInput)
                         .build();
 
         final Notification doYouKnowNotification =
                 new Notification.Builder(mContext)
-                        .setSmallIcon(R.drawable.cat)
+                        .setSmallIcon(R.drawable.practice)
                         .setContentTitle(problem.getQuestion())
                         .setContentText(getString(R.string.feelingOfConfidence))
-                       // .addAction(yesAction) //TODO want to add two actions
+                        .setPriority(Notification.PRIORITY_MAX)
+                        .setVisibility(Notification.VISIBILITY_PUBLIC)
+                        .setCategory(Notification.CATEGORY_REMINDER)
+                        .setDefaults(Notification.DEFAULT_VIBRATE)
+                        .addAction(yesAction) //TODO want to add two actions
                         .addAction(noAction).build();
 
-        final Notification hiNotification = getNotification("HI!!");
 
-        scheduleNotification(hiNotification, 8000);
+        scheduleNotification(doYouKnowNotification, 8000);
 
     }
 
@@ -109,19 +111,8 @@ public class QuestionActivity extends AppCompatActivity {
         // Adds the Intent to the top of the stack
         stackBuilder.addNextIntent(intent);
 
-        //TODO instantiate
-        return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
+        return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
     }
-
-    private Notification getNotification(String content) {
-        Notification.Builder builder = new Notification.Builder(this);
-        builder.setContentTitle("Scheduled Notification");
-        builder.setContentText(content);
-        builder.setSmallIcon(R.drawable.cat);
-        builder.setContentIntent(pendingIntent(DisplayActivity.class, QuestionActivity.class));
-        return builder.build();
-    }
-
 
     private void scheduleNotification(Notification notification, int delay) {
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Genius Math!</string>
+    <string name="app_name">Bump Math</string>
     <string name="edit_message">Enter your answer</string>
     <string name="button_send">Enter</string>
     <string name="button_confident">Know it</string>
