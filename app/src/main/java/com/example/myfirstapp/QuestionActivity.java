@@ -95,9 +95,9 @@ public class QuestionActivity extends AppCompatActivity {
                        // .addAction(yesAction) //TODO want to add two actions
                         .addAction(noAction).build();
 
-//        final Notification hiNotification = getNotification("HI!!");
+        final Notification hiNotification = getNotification("HI!!");
 
-        scheduleNotification(doYouKnowNotification, 8000);
+        scheduleNotification(hiNotification, 8000);
 
     }
 
@@ -110,7 +110,7 @@ public class QuestionActivity extends AppCompatActivity {
         stackBuilder.addNextIntent(intent);
 
         //TODO instantiate
-        return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
     }
 
     private Notification getNotification(String content) {
@@ -118,6 +118,7 @@ public class QuestionActivity extends AppCompatActivity {
         builder.setContentTitle("Scheduled Notification");
         builder.setContentText(content);
         builder.setSmallIcon(R.drawable.cat);
+        builder.setContentIntent(pendingIntent(DisplayActivity.class, QuestionActivity.class));
         return builder.build();
     }
 
