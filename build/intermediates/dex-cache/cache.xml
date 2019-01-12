@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_dc1a7eb8c7e3b8a5528e6ae5504c8cdb30f6809d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.0_4f9ec95a422ea57376c1c5d48be0cbeae7247b66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_277bd5f7883ebcefcd001c803f92738aed58acf8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.0_7262926668760375747f6041af20b1ac0bdc542f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f4eee5d0064df6cbecfc91c5fe3be8724de425cc">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_88395d467bc238571d51f9f1b58a845ec20dcdc6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.0_162b3218b8134f401b674a6dd1daec9bfee1f2cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c44032a6a419638b43cbf5a95103febedbe92f24">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2e011d9dedf798b390ba944b82360a67ebd44fff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_edb8283ff3f3c247658cd7cb8561c556c43fd8ca/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.0_bd7aae627e7eaf9a6c891ee0d1439b92b3d3749e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_7d66c3c7b89b8bc0bfcdb68aa49f4549a9acbb5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.0_00ce660a7ec181ea911acb2ec4f3f022be74a022/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_725e175faa538d2a24f1c9a92cb73f123d8a5b2f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.0_c5bd229d956ce01840f95c0dd7c180e82ead34ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.0_b1c5b2502d41f74f876694c6a3fd6c305e4707d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.0_facc6fe6ee7e988ce0368f806dfb957462424d6d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_fc5f1b3dbc94c6b4d19b318e2f7e8f9002250ece/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/khebert/Sites/teambumpmath/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.0_508754bb4c418629aa8cb1a8f013e31eb131a0b2/classes.dex" />
+    </item>
+
+</items>

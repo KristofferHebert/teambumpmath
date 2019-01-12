@@ -1,0 +1,7 @@
+#Sun Nov 20 13:06:18 PST 2016
+base.0=/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2e011d9dedf798b390ba944b82360a67ebd44fff
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_88395d467bc238571d51f9f1b58a845ec20dcdc6/classes.dex
+base.1=/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_88395d467bc238571d51f9f1b58a845ec20dcdc6
+file.0=/Users/khebert/Sites/teambumpmath/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2e011d9dedf798b390ba944b82360a67ebd44fff/classes.dex
